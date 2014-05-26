@@ -61,9 +61,11 @@ class Mageflow_Connect_Helper_Handler_Catalog_Category
         $catalogCollection = Mage::getModel('catalog/category')
             ->getCollection()
             ->addFieldToFilter('mf_guid', $filteredData['mf_guid']);
+
         $itemModel = $catalogCollection->getFirstItem();
 
         $originalData = null;
+
         if (!is_null($itemModel)) {
             $itemModel = Mage::getModel('catalog/category');
         } else {
@@ -75,6 +77,7 @@ class Mageflow_Connect_Helper_Handler_Catalog_Category
         }
 
         $originalPath = $filteredData['path'];
+
         unset($filteredData['path']);
 
         $rootCategory = Mage::getModel('catalog/category')

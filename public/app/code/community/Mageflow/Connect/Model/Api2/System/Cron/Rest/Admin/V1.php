@@ -78,14 +78,29 @@ class Mageflow_Connect_Model_Api2_System_Cron_Rest_Admin_V1
 
         foreach ($cronJobs->children() as $name => $job) {
             $data = get_object_vars($job->children());
-            $data['name'] = $name;
-            $run = is_array($data['run']) ? $data['run'] : array();
-            $schedule = is_array($data['schedule']) ? $data['schedule'] : array();
+            if (isset($data['name'])) {
+                $data['name'] = $name;
+            } else {
+
+            }
+            if (isset($data['run']) && is_object($data['run'])) {
+                $run = $data['run']->asArray();
+                $run = $run['model'];
+            } else {
+                $run = '';
+            }
+            if (isset($data['schedule']) && is_object($data['schedule'])) {
+                $schedule = $data['schedule']->asArray();
+                $schedule = $schedule['cron_expr'];
+            } else {
+                $schedule = '';
+            }
+
             $out[]
                 = array(
                 'name' => $name,
-                'run' => is_array($run['model']) ? $run['model'] : array(),
-                'schedule' => is_array($schedule['cron_expr']) ? $schedule['cron_expr'] : array(),
+                'run' => $run,
+                'schedule' => $schedule,
             );
         }
         return $out;

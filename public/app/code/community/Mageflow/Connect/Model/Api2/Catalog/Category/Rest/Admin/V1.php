@@ -147,7 +147,7 @@ class Mageflow_Connect_Model_Api2_Catalog_Category_Rest_Admin_V1
         Mage::helper('mageflow_connect/system')->cacheSettings(
             $originalCacheSettings
         );
-        $this->_successMessage("Successfully saved Catalog Caterogry", 0, $out);
+        $this->_successMessage("Successfully saved Catalog Category", 0, $out);
         Mage::helper('mageflow_connect/log')->log(
             sprintf('%s', print_r($out, true))
         );

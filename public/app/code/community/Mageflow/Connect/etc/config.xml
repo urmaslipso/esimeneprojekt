@@ -35,7 +35,7 @@
 <config>
     <modules>
         <Mageflow_Connect>
-            <version>1.0.3</version>
+            <version>1.0.5</version>
         </Mageflow_Connect>
     </modules>
     <global>

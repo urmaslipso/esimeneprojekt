@@ -135,7 +135,7 @@ class Mageflow_Connect_Block_Adminhtml_Push_Grid_Column_Renderer
         if (strlen($output) > 100) {
             $output = substr($output, 0, 100) . '...';
         }
-        return $output;
+        return $output . 'woot';
     }
 
 }

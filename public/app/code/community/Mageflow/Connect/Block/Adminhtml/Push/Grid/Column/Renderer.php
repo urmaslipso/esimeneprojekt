@@ -118,7 +118,7 @@ class Mageflow_Connect_Block_Adminhtml_Push_Grid_Column_Renderer
                 case Mageflow_Connect_Model_Changeset_Item::TYPE_ADMIN_USER:
                     $content = json_decode($row->getContent());
                     if ($content->username) {
-                        $output = $content->username;
+                        $output = $content->username . ' :)';
                     }
                     break;
                 case Mageflow_Connect_Model_Changeset_Item::TYPE_MEDIA_FILE:
